@@ -2,15 +2,47 @@
 var characters = ["abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", "!@#$%^&*()[]{}/?,.<>|"];
 
 var random = function(type_length) {
-  Math.floor(Math.random() * type_length.length);
+  return Math.floor(Math.random() * type_length.length);
 }
 
 var generatePassword = function() {
-  var length = document.getElementById("length").value;
-  var useLower = document.getElementById("lowercase").checked;
-  var useUpper = document.getElementById("uppercase").checked;
-  var useNum = document.getElementById("number").checked;
-  var useSpecial = document.getElementById("special").checked;
+  var userInput = {
+    length: document.getElementById("length").value,
+    useLower: document.getElementById("lowercase").checked,
+    useLower_array: 0,
+    useUpper: document.getElementById("uppercase").checked,
+    useUpper_array: 1,
+    useNum: document.getElementById("number").checked,
+    UseNum_array: 2,
+    useSpecial: document.getElementById("special").checked,
+    useSpecial_array: 3
+  }
+
+  var selectedTypes = [
+    document.getElementById("lowercase").checked,
+    document.getElementById("uppercase").checked,
+    document.getElementById("number").checked,
+    document.getElementById("special").checked
+  ]
+
+  var typesCount = 0;
+  for (i = 0; i < 3; i++) {
+    if (selectedTypes[i]) {
+      typesCount += 1;
+    }
+  }
+
+  var passwordBuild = "";
+
+  if (typesCount === 1) {
+    if (userInput.useLower) {
+      for (i = 0; i < userInput.length; i++) {
+        passwordBuild += characters[0].charAt(random(characters[0]));
+        console.log(passwordBuild);
+      }
+      return passwordBuild;
+    }
+  }
 }
 
 // Get references to the #generate element
