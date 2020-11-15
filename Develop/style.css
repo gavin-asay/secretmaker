@@ -122,6 +122,10 @@ form {
   margin-top: 30px;
 }
 
+#error {
+  color: hsl(360, 91%, 36%);
+}
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;

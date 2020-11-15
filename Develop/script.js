@@ -6,18 +6,7 @@ var random = function(type_length) {
 }
 
 var generatePassword = function() {
-  var userInput = {
-    length: document.getElementById("length").value,
-    useLower: document.getElementById("lowercase").checked,
-    useLower_array: 0,
-    useUpper: document.getElementById("uppercase").checked,
-    useUpper_array: 1,
-    useNum: document.getElementById("number").checked,
-    UseNum_array: 2,
-    useSpecial: document.getElementById("special").checked,
-    useSpecial_array: 3
-  }
-
+  var userLength = document.getElementById("length").value;
   var selectedTypes = [
     document.getElementById("lowercase").checked,
     document.getElementById("uppercase").checked,
@@ -25,33 +14,31 @@ var generatePassword = function() {
     document.getElementById("special").checked
   ]
 
-/*  var typesCount = 0;
-  for (i = 0; i < 3; i++) {
-    if (selectedTypes[i]) {
-      typesCount += 1;
-    }
-  } */
+  console.log(userLength);
 
   var passwordBuild = "";
   var characterPool = "";
-/*
-  if (typesCount === 1) {
-    if (userInput.useLower) {
-      for (i = 0; i < userInput.length; i++) {
-        passwordBuild += characters[0].charAt(random(characters[0]));
-        console.log(passwordBuild);
+  if ((userLength < 8 || userLength > 128) && !selectedTypes[0] && !selectedTypes[1] && !selectedTypes[2] && !selectedTypes[3]) {
+    document.getElementById("error").innerHTML = "Select a number between 8 and 128.<br />Select at least one character type."
+  } else if (userLength < 8 || userLength > 128) {
+    document.getElementById("error").innerHTML = "Select a number between 8 and 128."
+  }
+  else if (!selectedTypes[0] && !selectedTypes[1] && !selectedTypes[2] && !selectedTypes[3]) {
+    document.getElementById("error").innerHTML = "Select at least one character type."
+  } else {
+    for (i = 0; i < 4; i++) {
+      if (selectedTypes[i]) {
+        characterPool += characters[i];
       }
-      return passwordBuild;
     }
-  }
-} */
+    console.log(characterPool);
 
-for (i = 0; i < 4; i++) {
-  if (selectedTypes[i]) {
-    characterPool += characters[i];
+    for (i = 0; i < userLength; i++) {
+      passwordBuild += characterPool.charAt(random(characterPool));
   }
-}
-console.log(characterPool);
+    console.log(passwordBuild);
+    return passwordBuild;
+  }
 }
 
 // Get references to the #generate element
