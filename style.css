@@ -122,6 +122,14 @@ form {
   margin-top: 30px;
 }
 
+label span {
+  font-size: 0.75em;
+}
+
+#length {
+  min-width: 8em;
+}
+
 .char-types div {
   display: inline-block;
 }
