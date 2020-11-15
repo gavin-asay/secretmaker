@@ -1,4 +1,6 @@
 // Assignment code here
+
+// This array carries the various characters used in the password, sorted by type
 var characters = ["abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", "!@#$%^&*()[]{}/?,.<>|"];
 
 var random = function(type_length) {
@@ -6,6 +8,7 @@ var random = function(type_length) {
 }
 
 var generatePassword = function() {
+  // user input from HTML form defines this variable and array
   var userLength = document.getElementById("length").value;
   var selectedTypes = [
     document.getElementById("lowercase").checked,
@@ -16,8 +19,10 @@ var generatePassword = function() {
 
   console.log(userLength);
 
+  // setting up these variables for a little later
   var passwordBuild = "";
   var characterPool = "";
+  // the if and else-ifs validate user input
   if ((userLength < 8 || userLength > 128) && !selectedTypes[0] && !selectedTypes[1] && !selectedTypes[2] && !selectedTypes[3]) {
     document.getElementById("error").innerHTML = "Select a number between 8 and 128.<br />Select at least one character type."
   } else if (userLength < 8 || userLength > 128) {
@@ -25,7 +30,9 @@ var generatePassword = function() {
   }
   else if (!selectedTypes[0] && !selectedTypes[1] && !selectedTypes[2] && !selectedTypes[3]) {
     document.getElementById("error").innerHTML = "Select at least one character type."
+  // if user input is good, the else statement makes the magic happen
   } else {
+    // this for-loop collects all user-selected character types and concatenates them into a single variable string
     for (i = 0; i < 4; i++) {
       if (selectedTypes[i]) {
         characterPool += characters[i];
@@ -33,10 +40,12 @@ var generatePassword = function() {
     }
     console.log(characterPool);
 
+    // this for-loop selects a character at random and adds it to passwordBuild, iterating userLength times
     for (i = 0; i < userLength; i++) {
       passwordBuild += characterPool.charAt(random(characterPool));
   }
     console.log(passwordBuild);
+    // one pseudorandomly generated password, fresh out of the oven
     return passwordBuild;
   }
 }
