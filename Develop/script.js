@@ -25,15 +25,16 @@ var generatePassword = function() {
     document.getElementById("special").checked
   ]
 
-  var typesCount = 0;
+/*  var typesCount = 0;
   for (i = 0; i < 3; i++) {
     if (selectedTypes[i]) {
       typesCount += 1;
     }
-  }
+  } */
 
   var passwordBuild = "";
-
+  var characterPool = "";
+/*
   if (typesCount === 1) {
     if (userInput.useLower) {
       for (i = 0; i < userInput.length; i++) {
@@ -43,6 +44,14 @@ var generatePassword = function() {
       return passwordBuild;
     }
   }
+} */
+
+for (i = 0; i < 4; i++) {
+  if (selectedTypes[i]) {
+    characterPool += characters[i];
+  }
+}
+console.log(characterPool);
 }
 
 // Get references to the #generate element
