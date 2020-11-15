@@ -122,6 +122,10 @@ form {
   margin-top: 30px;
 }
 
+.char-types div {
+  display: inline-block;
+}
+
 #error {
   color: hsl(360, 91%, 36%);
 }
@@ -129,7 +133,7 @@ form {
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
-    margin: 16px 0px 0px 0px;
+    margin: 16px auto;
     padding: 10px 15px;
   }
 
