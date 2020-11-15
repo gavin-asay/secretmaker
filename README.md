@@ -13,7 +13,7 @@ From here, a series of if and if-else statements check whether the length falls 
 
 A for-loop checks the value of each element of _selectedTypes_. If a given element is true based on checkbox status, it then concatenates those elements into a new variable _characterPool_. Then, another for-loop with condition _i &lt; userLength_  selects a random character from characterPool and concatenates that character into variable _passwordBuild_. At the end of the loop, the function returns _passwordBuild_.
 
-This allows the page to repeatedly generate new passwords without user interactivity being interrupted by alerts and without reloading. Finally, a small tweak to the existing _writePassword()_ function prevents the script from writing undefined to the password text area if user input fails to validate.
+This allows the page to repeatedly generate new passwords without user interactivity being interrupted by alerts and without reloading. Finally, a small tweak to the existing _writePassword()_ function prevents the script from writing 'undefined' to the password text area if user input fails to validate.
 
 https://github.com/gavin-asay/Week3Challenge/
 
