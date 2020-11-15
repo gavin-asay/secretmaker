@@ -55,13 +55,12 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  console.log(document.getElementById("lowercase").checked);
-  console.log(document.getElementById("length").value);
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
+  if (password) {
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
