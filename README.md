@@ -15,8 +15,8 @@ A for-loop checks the value of each element of _selectedTypes_. If a given eleme
 
 This allows the page to repeatedly generate new passwords without user interactivity being interrupted by alerts and without reloading. Finally, a small tweak to the existing _writePassword()_ function prevents the script from writing 'undefined' to the password text area if user input fails to validate.
 
-https://github.com/gavin-asay/Week3Challenge/
+https://github.com/gavin-asay/secretmaker/
 
-https://gavin-asay.github.io/Week3Challenge/
+https://gavin-asay.github.io/secretmaker/
 
 ![Preview of password generator](./assets/images/pwordpreview.png)
