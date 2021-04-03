@@ -1,4 +1,4 @@
-# Password Generator Starter Code
+# Password Generator
 ## Gavin Asay
 
 This is a simple password generator. To start, I defined an array _characters_ with four elements:
